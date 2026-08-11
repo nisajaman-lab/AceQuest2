@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-navy-light: #2d3d5f;
+  --color-navy-DEFAULT: #1a2744;
+  --color-navy-dark: #0f172a;
+
+  --color-teal-light: #33d9e8;
+  --color-teal-DEFAULT: #00bcd4;
+  --color-teal-dark: #00838f;
+
+  --color-gold-light: #f7d046;
+  --color-gold-DEFAULT: #f5c518;
+  --color-gold-dark: #c59b0f;
+
+  --color-crimson-light: #d34343;
+  --color-crimson-DEFAULT: #c62828;
+  --color-crimson-dark: #8e1c1c;
+
+  --font-game: 'Outfit', 'Inter', sans-serif;
+}
+
+@utility glass-panel {
+  background: rgba(26, 39, 68, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@utility glass-panel-heavy {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+@utility glow-teal {
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.25);
+}
+
+@utility glow-gold {
+  box-shadow: 0 0 20px rgba(245, 197, 24, 0.25);
+}
+
+@utility glow-text-teal {
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+@utility glow-text-gold {
+  text-shadow: 0 0 10px rgba(245, 197, 24, 0.5);
+}
+
+@layer base {
+  body {
+    @apply bg-navy-dark text-slate-100 font-game antialiased overflow-x-hidden;
+    background-image: radial-gradient(circle at 50% 0%, #1e294b 0%, #0f172a 70%);
+    min-height: 100vh;
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d3d5f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00bcd4;
+}
+
+/* Pulsing grid background for game overlay */
+.digital-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 188, 212, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 188, 212, 0.04) 1px, transparent 1px);
+}
